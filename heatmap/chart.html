@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Getting Started with Chart JS with www.chartjs3.com</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #1A1A1A;
+        color: rgba(54, 162, 235, 1);
+      }
+      .chartMenu p {
+        padding: 10px;
+        font-size: 20px;
+      }
+      .chartCard {
+        width: 100vw;
+        height: calc(100vh - 40px);
+        background: rgba(54, 162, 235, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 700px;
+        height:100px;
+        padding: 20px;
+        border-radius: 20px;
+        border: solid 3px rgba(54, 162, 235, 1);
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chartMenu">
+      <p>WWW.CHARTJS3.COM (Chart JS <span id="chartVersion"></span>)</p>
+    </div>
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+        <!-- <button onclick="generateData()">Test</button> -->
+      </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <script>
+      function isoDayOfWeek(dt){
+        let wd = dt.getDay();
+        wd = (wd +6) %7+1
+        return '' + wd;
+      };
+
+      function generateData(){
+        const d = new Date();
+        const today = new Date(d.getFullYear(), d.getMonth(), d.getDate(),0,0,0,0);
+        const data2 = [];
+        const end = today;
+        let dt = new Date(new Date().setDate(end.getDate()- 365));
+        while(dt <=end){
+          const iso = dt.toISOString().substr(0,10);
+          data2.push({
+            x:iso,
+            y:isoDayOfWeek(dt),
+            d:iso,
+            v:Math.random() * 50
+          });
+          dt = new Date(dt.setDate(dt.getDate()+1));
+        }
+        console.log(data2);
+        return data2;
+      };
+    // setup 
+    const data = {
+      datasets:[{
+        label: 'Heat Map',
+        data: generateData(),
+        backgroundColor(c){
+          const value = c.dataset.data[c.dataIndex].v;
+          const alpha = (10 + value) / 60;
+          return `rgba(0, 200, 0 , ${alpha})`;
+        },
+        borderColor: 'green',
+        borderRadius: 1,
+        borderWidth:1,
+        hoverBackgroundColor: 'rgba(255, 26, 104 , 0.2)',
+        hoverBorderColor: 'rgba(255, 26, 104 , 1)',
+        width(c){
+          const a = c.chart.chartArea || {};
+          return (a.right - a.left) / 53-1;
+        },
+        height(c){
+          const a = c.chart.chartArea || {};
+          return (a.bottom - a.top) / 7-1;
+        },
+      }]
+    };
+     const scales ={
+      y:{
+        type: 'time',
+        offset: true,
+        time: {
+          unit:'day',
+          round: 'day',
+          isoWeek:1,
+          parser:'i',
+          displayFormats:{
+            day:'iii'
+          }
+        },
+        reserve: true,
+        position:'right',
+        ticks:{
+          maxRotation:0,
+          autoSkip:true,
+          padding:1,
+          font:{
+            size:9
+          }
+        },
+        grid:{
+          display:false,
+          drawBorder: false,
+          tickLength:0
+        }
+      },
+      x:{
+        type:'time',
+        position:'border',
+        offset:true,
+        time:{}
+      }
+     };
+
+
+
+
+
+
+    const config = {
+      
+      type: 'matrix',
+      data: data,
+      options: {
+        maintainAspectRatio: false,
+        scales: scales,
+        plugins:{
+          legend:{
+            display:false,
+        }
+
+        }
+      }
+    };
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+
+    // Instantly assign Chart.js version
+    const chartVersion = document.getElementById('chartVersion');
+    chartVersion.innerText = Chart.version;
+    </script>
+
+  </body>
+</html>
