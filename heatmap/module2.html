@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <title>Pie Chart with Total</title> -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    
+    .chart-container {
+      position: relative;
+      width: 250px;
+      height: 250px;
+    }
+    
+    #myPieChart {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .chart-total {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: 88px;
+      font-weight: bold;
+      color: #333; /* Adjust color as needed */
+    }
+  </style>
+</head>
+<body>
+  <div class="chart-container">
+    <canvas id="myPieChart"></canvas>
+    <div class="chart-total" id="totalValue"></div>
+  </div>
+
+  <!-- Import Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Sample data for pie chart
+    const pieData = {
+      labels: ['Chapter 1', 'Chapter 2', 'Chapter 3'],
+      values: [14, 11, 7]
+    };
+
+    // Calculate total value
+    const totalValue = pieData.values.reduce((a, b) => a + b, 0);
+    document.getElementById('totalValue').textContent = `${totalValue}`;
+
+    // Chart.js configuration
+    const ctx = document.getElementById('myPieChart').getContext('2d');
+    const myPieChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: pieData.labels,
+        datasets: [{
+          data: pieData.values,
+          borderWidth: 3,
+          Color: ['#ffcd56', '#ff6384', '#36a2eb', '#fd6b19'],
+          hoverOffset: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        cutout: '80%', // Adjust the cutout percentage as needed
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            enabled: true,
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
