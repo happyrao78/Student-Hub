@@ -3,73 +3,147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- <title>Awards Card</title> -->
+<title>Awards Card</title>
 <style>
+    /* Styles for card and modal */
     .card {
-        width: 400px; /* Adjusted width for better layout */
+        width: 400px;
         border: 1px solid #ccc;
         border-radius: 15px;
         overflow: hidden;
         margin: 20px;
-        box-shadow: 0 0 100px rgba(32, 21, 21, 0.1);
-
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: relative; /* Ensure relative positioning */
     }
 
     .card-header {
         background-color: #f0f0f0;
-        padding: 1px;
+        padding: 10px;
         text-align: center;
     }
 
     .card-body {
-        padding: 10px;
         display: flex;
         flex-wrap: wrap;
         gap: 15px;
-        justify-content: center; /* Center align content horizontally */
-        align-items: center; /* Center align items vertically */
+        justify-content: center;
+        align-items: center;
         overflow: hidden; /* Ensure overflow hidden */
-        max-height: 140px; /* Limit initial height */
+        max-height: 160px; /* Limit initial height */
         transition: max-height 0.3s ease; /* Smooth transition */
     }
 
     .award-item {
-        flex: 0 0 calc(25% - 15px); /* 4 items per row (adjust as needed), minus the gap */
+        flex: 0 0 calc(25% - 15px);
         padding: 5px;
-        text-align: center; /* Center align content horizontally */
-        margin-bottom: 0; /* Adjust spacing between items */
-        position: relative; /* Position relative for absolute positioning of small tag */
+        text-align: center;
+        position: relative;
     }
 
     .award-img {
-        width: 100%; /* Image width set to 100% of its container */
-        height: auto; /* Automatically adjust height to maintain aspect ratio */
-        max-width: 100%; /* Limit maximum width of each image */
-        max-height: 200px; /* Limit maximum height of each image */
-        /* border-radius: 50%; */
-        object-fit: cover; /* Maintain aspect ratio */
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: 200px;
+        object-fit: cover;
     }
-
     .award-img1 {
-        width: 290px; /* Image width set to 100% of its container */
-        height: 250px; /* Automatically adjust height to maintain aspect ratio */
-        max-width: 500px; /* Limit maximum width of each image */
-        max-height: 300px; /* Limit maximum height of each image */
-        /* border-radius: 50%; */
-        object-fit: cover; /* Maintain aspect ratio */
+        width: 240px;
+        height: auto;
+        max-width: 300px;
+        max-height: 200px;
+        object-fit: cover;
     }
 
     .award-tag {
         position: absolute;
-        bottom: 5px; /* Adjust positioning */
+        bottom: 5px;
         left: 0;
         width: 100%;
-        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+        background-color: rgba(255, 255, 255, 0.8);
         padding: 2px;
         font-size: 12px;
         text-align: center;
     }
-    
+
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto; /* 10% from the top and centered */
+        padding: 20px;
+        /* position: fixed; */
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        position: relative;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .award-list-popup {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .award-item-popup {
+        flex: 0 0 calc(25% - 15px);
+        padding: 5px;
+        text-align: center;
+        position: relative;
+    }
+
+    .award-img-popup {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: 150px;
+        object-fit: cover;
+    }
+
+    .award-tag-popup {
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 2px;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .card-footer {
+        text-align: center;
+        margin-top: 10px;
+    }
 
     #show-more-btn {
         background-color: #007bff;
@@ -90,60 +164,84 @@
         <h2>Awards</h2>
     </div>
     <div class="card-body" id="award-list">
+        <!-- Initial image -->
         <div class="award-item">
             <img src="/asset/Award_Asset_final.png" alt="Award 1" class="award-img1">
-            
-        </div>
-        <div class="award-item">
-            <img src="/asset/trophy.png" alt="Award 2" class="award-img">
-            <div class="award-tag">2022</div>
-        </div>
-        <div class="award-item">
-            <img src="/asset/trophy.png" alt="Award 3" class="award-img">
-            <div class="award-tag">2021 </div>
-        </div>
-        <div class="award-item">
-            <img src="/asset/trophy.png" alt="Award 4" class="award-img">
-            <div class="award-tag">2020 </div>
-        </div>
-        <!-- Additional images hidden by default -->
-        <div class="award-item">
-            <img src="/asset/trophy.png" alt="Award 5" class="award-img">
-            <div class="award-tag">2019</div>
-        </div>
-        <div class="award-item">
-            <img src="/asset/trophy.png" alt="Award 6" class="award-img">
-            <div class="award-tag">2018 </div>
-        </div>
-        <div class="award-item">
-            <img src="/asset/trophy.png" alt="Award 7" class="award-img">
-            <div class="award-tag">2017 </div>
-        </div>
-        <div class="award-item">
-            <img src="/asset/trophy.png" alt="Award 8" class="award-img">
-            <div class="award-tag">2016 </div>
-        </div>
-        <div class="award-item">
-            <img src="/asset/trophy.png" alt="Award 8" class="award-img">
-            <div class="award-tag">2015</div>
         </div>
     </div>
     <div class="card-footer">
-        <button id="show-more-btn" onclick="toggleAwardList()">Show More</button>
+        <button id="show-more-btn" onclick="openModal()">Show More</button>
     </div>
 </div>
 
-<script>
-    function toggleAwardList() {
-        var awardList = document.getElementById("award-list");
-        var showMoreBtn = document.getElementById("show-more-btn");
+<!-- The Modal -->
+<div id="award-modal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Awards</h2>
+    <div class="award-list-popup">
+        <!-- Award items for popup -->
+        <div class="award-item-popup">
+            <img src="/asset/trophy.png" alt="Award 2" class="award-img-popup">
+            <div class="award-tag-popup">2022</div>
+        </div>
+        <div class="award-item-popup">
+            <img src="/asset/trophy.png" alt="Award 3" class="award-img-popup">
+            <div class="award-tag-popup">2021</div>
+        </div>
+        <div class="award-item-popup">
+            <img src="/asset/trophy.png" alt="Award 4" class="award-img-popup">
+            <div class="award-tag-popup">2020</div>
+        </div>
+        <div class="award-item-popup">
+            <img src="/asset/trophy.png" alt="Award 5" class="award-img-popup">
+            <div class="award-tag-popup">2019</div>
+        </div>
+        <div class="award-item-popup">
+            <img src="/asset/trophy.png" alt="Award 6" class="award-img-popup">
+            <div class="award-tag-popup">2018</div>
+        </div>
+        <div class="award-item-popup">
+            <img src="/asset/trophy.png" alt="Award 7" class="award-img-popup">
+            <div class="award-tag-popup">2017</div>
+        </div>
+        <div class="award-item-popup">
+            <img src="/asset/trophy.png" alt="Award 8" class="award-img-popup">
+            <div class="award-tag-popup">2016</div>
+        </div>
+        <div class="award-item-popup">
+            <img src="/asset/trophy.png" alt="Award 9" class="award-img-popup">
+            <div class="award-tag-popup">2015</div>
+        </div>
+    </div>
+  </div>
+</div>
 
-        if (awardList.style.maxHeight) {
-            awardList.style.maxHeight = null;
-            showMoreBtn.textContent = "Show More";
-        } else {
-            awardList.style.maxHeight = awardList.scrollHeight + "px";
-            showMoreBtn.textContent = "Show Less";
+<script>
+    // Get the modal
+    var modal = document.getElementById("award-modal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("show-more-btn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    function openModal() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
         }
     }
 </script>
