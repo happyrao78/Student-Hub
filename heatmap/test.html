@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <title>Test Scores</title> -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+    
+    .container {
+      max-width: 500px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .buttons {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .chapter-btn {
+      padding: 10px 20px;
+      border: none;
+      background-color: #a1d9a1;
+      color: rgb(9, 9, 9);
+      cursor: pointer;
+      border-radius: 4px;
+      margin: 0 10px;
+    }
+    
+    .chapter-btn.active {
+      background-color: #229726;
+    }
+    
+    .chart-container {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="buttons">
+      <button onclick="showChapter(1)" class="chapter-btn active">Chapter 1</button>
+      <button onclick="showChapter(2)" class="chapter-btn">Chapter 2</button>
+      <button onclick="showChapter(3)" class="chapter-btn">Chapter 3</button>
+    </div>
+    <div class="chart-container">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Import Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Sample data for test scores
+    const chapterData = {
+      1: [
+        { name: "Week 1", score: 45 },
+        { name: "Week 2", score: 34 },
+        { name: "Week 3", score: 56 },
+        { name: "Week 4", score: 67 },
+        { name: "Week 5", score: 12 },
+        { name: "Week 6", score: 98 }
+      ],
+      2: [
+        { name: "Week 1", score: 45 },
+        { name: "Week 2", score: 34 },
+        { name: "Week 3", score: 56 },
+        { name: "Week 4", score: 67 },
+        { name: "Week 5", score: 12 },
+        { name: "Week 6", score: 98 },
+        { name: "Week 7", score: 34 },
+        { name: "Week 8", score: 78 }
+      ],
+      3: [
+        { name: "Week 1", score: 45 },
+        { name: "Week 2", score: 34 },
+        { name: "Week 3", score: 56 },
+        { name: "Week 4", score: 67 },
+        { name: "Week 5", score: 12 },
+        { name: "Week 6", score: 98 },
+        { name: "Week 7", score: 102 },
+        { name: "Week 8", score: 56 },
+        { name: "Week 9", score: 89 }
+      ]
+    };
+
+    let currentChapter = 1;
+    let myChart;
+
+    // Function to show chart based on selected chapter
+    function showChapter(chapter) {
+      currentChapter = chapter;
+      updateChart();
+      updateActiveButton();
+    }
+
+    // Function to update active button style
+    function updateActiveButton() {
+      const buttons = document.querySelectorAll('.chapter-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+        if (parseInt(btn.textContent.match(/\d+/)[0]) === currentChapter) {
+          btn.classList.add('active');
+        }
+      });
+    }
+
+    // Function to update chart data based on currentChapter
+    function updateChart() {
+      const chapter = currentChapter.toString();
+      const data = chapterData[chapter];
+      const labels = data.map(test => test.name);
+      const scores = data.map(test => test.score);
+      
+      if (myChart) {
+        myChart.destroy();
+      }
+
+      const ctx = document.getElementById('myChart').getContext('2d');
+      myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Test Scores',
+            data: scores,
+            backgroundColor: '#4CAF50',
+            borderColor: '#45a049',
+            borderWidth: 0.5
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: {
+                display: false // Remove grid lines from y-axis
+              }
+            },
+            x: {
+              beginAtZero: true,
+              grid: {
+                display: false // Remove grid lines from y-axis
+              }
+            }
+          },
+          plugins: {
+            legend: {
+              display: true,
+              position: 'top'
+            },
+            tooltip: {
+              enabled: true
+            }
+          },
+          elements: {
+            line: {
+              tension: 0
+            }
+          },
+          layout: {
+            padding: {
+              left: 10,
+              right: 10,
+              top: 10,
+              bottom: 10
+            }
+          },
+          ticks:{
+                font:{
+                    size:12,
+                    family:"'Arial', sans-serif",
+                    weight: "bold",
+                }
+              }
+        }
+      });
+    }
+
+    // Initial chart display
+    updateChart();
+  </script>
+</body>
+</html>
