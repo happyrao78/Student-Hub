@@ -39,24 +39,24 @@
     </style>
   </head>
   <body>
-    <div class="chartMenu">
-      <p>WWW.CHARTJS3.COM (Chart JS <span id="chartVersion"></span>)</p>
-    </div>
     <div class="chartCard">
       <div class="chartBox">
         <canvas id="myChart"></canvas>
-        <!-- <button onclick="generateData()">Test</button> -->
+        <button type="button" onclick="generateData()">Test</button>
       </div>
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@1.1"></script>
+   
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script> -->
     <script>
       function isoDayOfWeek(dt){
         let wd = dt.getDay();
-        wd = (wd +6) %7+1
+        wd = (wd +6) % 7 + 1
         return '' + wd;
-      };
+       };
 
       function generateData(){
         const d = new Date();
@@ -95,7 +95,7 @@
         width(c){
           const a = c.chart.chartArea || {};
           return (a.right - a.left) / 53-1;
-        },
+        },  
         height(c){
           const a = c.chart.chartArea || {};
           return (a.bottom - a.top) / 7-1;
@@ -115,14 +115,14 @@
             day:'iii'
           }
         },
-        reserve: true,
+        reverse: true,
         position:'right',
         ticks:{
           maxRotation:0,
           autoSkip:true,
           padding:1,
           font:{
-            size:9
+            size:9,
           }
         },
         grid:{
@@ -133,21 +133,34 @@
       },
       x:{
         type:'time',
-        position:'border',
+        position:'bottom',
         offset:true,
-        time:{}
+        time:{
+          unit: 'week',
+          round: 'week',
+          isoWeekDay:1,
+          displayFormats:{
+            week:'MMM dd'
+          }
+        },
+        ticks:{
+          maxRotation:0,
+          autoSkip:true,
+          font:{
+            size: 9
+          }
+        },
+        grid:{
+          display:false,
+          drawBorder:false,
+          tickLength:0
+        }
       }
      };
-
-
-
-
-
-
     const config = {
       
       type: 'matrix',
-      data: data,
+      data,
       options: {
         maintainAspectRatio: false,
         scales: scales,
