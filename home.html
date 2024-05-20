@@ -28,7 +28,7 @@
 
       <section class="flex">
 
-         <a href="home.html" class="logo">Educa.</a>
+         <a href="home.html" class="logo">Student Hub</a>
 
          <form action="search.html" method="post" class="search-form">
             <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
@@ -93,13 +93,13 @@
             <div class="widget" id="upper1">
                <h2>Total Questions</h2>
                <h1>105</h1>
-               
+
                <!-- Line graph will be inserted here -->
             </div>
 
             <!-- Calendar Heatmap Widget -->
             <div class="widget" id="upper2">
-               
+
                <div class="upper2text">
                   <p>67 submissions in past 3 months</p>
                   <p>Total Active Days: <b>56</b></p>
@@ -107,207 +107,209 @@
 
                </div>
                <div class="upper2below">
-                  
-                  
+
+
                   <div class="heatmap">
 
                      <div class="chartCard">
                         <div class="chartBox">
-                          <canvas id="myChart"></canvas>
+                           <canvas id="myChart"></canvas>
                         </div>
-                      </div>
-                      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
-                      <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-                      <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@1.1"></script>
-                  
-                      <script>
+                     </div>
+                     <script type="text/javascript"
+                        src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+                     <script
+                        src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+                     <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@1.1"></script>
+
+                     <script>
                         function isoDayOfWeek(dt) {
-                          let wd = dt.getDay();
-                          wd = (wd + 6) % 7 + 1;
-                          return '' + wd;
+                           let wd = dt.getDay();
+                           wd = (wd + 6) % 7 + 1;
+                           return '' + wd;
                         }
-                  
+
                         function generateData() {
-                          const contributions = [
-                            { date: '2024-04-10', count: 1 },
-                            { date: '2024-04-11', count: 2 },
-                            { date: '2024-04-12', count: 0 },
-                            { date: '2024-04-13', count: 3 },
-                            { date: '2024-04-14', count: 4 },
-                            { date: '2024-04-15', count: 3 },
-                            { date: '2024-04-16', count: 4 },
-                            { date: '2024-04-17', count: 5 },
-                            { date: '2024-04-18', count: 5 },
-                            { date: '2024-04-19', count: 2 },
-                            { date: '2024-04-20', count: 4 },
-                            { date: '2024-05-21', count: 1 },
-                            { date: '2024-05-22', count: 4 },
-                            { date: '2024-05-23', count: 3 },
-                            { date: '2024-05-24', count: 4 },
-                            { date: '2024-05-25', count: 1 },
-                            { date: '2024-05-26', count: 2 },
-                            { date: '2024-05-27', count: 0 },
-                            { date: '2024-05-28', count: 0 },
-                            { date: '2024-05-29', count: 1 },
-                            { date: '2024-05-30', count: 4 },
-                            { date: '2024-05-01', count: 3 },
-                            { date: '2024-05-02', count: 5 },
-                            { date: '2024-05-03', count: 5 },
-                            { date: '2024-05-04', count: 4 },
-                            { date: '2024-05-05', count: 3 },
-                            { date: '2024-05-06', count: 4 },
-                            { date: '2024-05-07', count: 4 },
-                            { date: '2024-05-08', count: 4 },
-                            { date: '2024-05-09', count: 4 },
-                            { date: '2024-05-10', count: 4 },
-                            { date: '2024-05-11', count: 5 },
-                            { date: '2024-05-12', count: 3 },
-                            { date: '2024-05-13', count: 1 },
-                            { date: '2024-05-14', count: 0 },
-                            { date: '2024-05-15', count: 0 },
-                            { date: '2024-05-16', count: 0 },
-                            { date: '2024-05-17', count: 5 },
-                            { date: '2024-05-18', count: 3 },
-                            { date: '2024-05-19', count: 2 },
-                            { date: '2024-05-20', count: 4 },
-                            { date: '2024-05-21', count: 4 },
-                            { date: '2024-05-22', count: 4 },
-                            { date: '2024-05-23', count: 0 },
-                            { date: '2024-05-24', count: 4 },
-                            { date: '2024-05-25', count: 1 },
-                            // Add more custom dates and contributions here
-                          ];
-                  
-                          const startDate = new Date('2024-01-01');
-                          const endDate = new Date('2024-12-31');
-                          const data = [];
-                          
-                          for (let dt = new Date(startDate); dt <= endDate; dt.setDate(dt.getDate() + 1)) {
-                            const iso = dt.toISOString().substr(0, 10);
-                            const contribution = contributions.find(entry => entry.date === iso);
-                            const count = contribution ? contribution.count : 0;
-                            data.push({
-                              x: iso,
-                              y: isoDayOfWeek(dt),
-                              d: iso,
-                              v: count,
-                            });
-                          }
-                  
-                          return data;
+                           const contributions = [
+                              { date: '2024-04-10', count: 1 },
+                              { date: '2024-04-11', count: 2 },
+                              { date: '2024-04-12', count: 0 },
+                              { date: '2024-04-13', count: 3 },
+                              { date: '2024-04-14', count: 4 },
+                              { date: '2024-04-15', count: 3 },
+                              { date: '2024-04-16', count: 4 },
+                              { date: '2024-04-17', count: 5 },
+                              { date: '2024-04-18', count: 5 },
+                              { date: '2024-04-19', count: 2 },
+                              { date: '2024-04-20', count: 4 },
+                              { date: '2024-05-21', count: 1 },
+                              { date: '2024-05-22', count: 4 },
+                              { date: '2024-05-23', count: 3 },
+                              { date: '2024-05-24', count: 4 },
+                              { date: '2024-05-25', count: 1 },
+                              { date: '2024-05-26', count: 2 },
+                              { date: '2024-05-27', count: 0 },
+                              { date: '2024-05-28', count: 0 },
+                              { date: '2024-05-29', count: 1 },
+                              { date: '2024-05-30', count: 4 },
+                              { date: '2024-05-01', count: 3 },
+                              { date: '2024-05-02', count: 5 },
+                              { date: '2024-05-03', count: 5 },
+                              { date: '2024-05-04', count: 4 },
+                              { date: '2024-05-05', count: 3 },
+                              { date: '2024-05-06', count: 4 },
+                              { date: '2024-05-07', count: 4 },
+                              { date: '2024-05-08', count: 4 },
+                              { date: '2024-05-09', count: 4 },
+                              { date: '2024-05-10', count: 4 },
+                              { date: '2024-05-11', count: 5 },
+                              { date: '2024-05-12', count: 3 },
+                              { date: '2024-05-13', count: 1 },
+                              { date: '2024-05-14', count: 0 },
+                              { date: '2024-05-15', count: 0 },
+                              { date: '2024-05-16', count: 0 },
+                              { date: '2024-05-17', count: 5 },
+                              { date: '2024-05-18', count: 3 },
+                              { date: '2024-05-19', count: 2 },
+                              { date: '2024-05-20', count: 4 },
+                              { date: '2024-05-21', count: 4 },
+                              { date: '2024-05-22', count: 4 },
+                              { date: '2024-05-23', count: 0 },
+                              { date: '2024-05-24', count: 4 },
+                              { date: '2024-05-25', count: 1 },
+                              // Add more custom dates and contributions here
+                           ];
+
+                           const startDate = new Date('2024-01-01');
+                           const endDate = new Date('2024-12-31');
+                           const data = [];
+
+                           for (let dt = new Date(startDate); dt <= endDate; dt.setDate(dt.getDate() + 1)) {
+                              const iso = dt.toISOString().substr(0, 10);
+                              const contribution = contributions.find(entry => entry.date === iso);
+                              const count = contribution ? contribution.count : 0;
+                              data.push({
+                                 x: iso,
+                                 y: isoDayOfWeek(dt),
+                                 d: iso,
+                                 v: count,
+                              });
+                           }
+
+                           return data;
                         }
-                  
+
                         const data = {
-                          datasets: [{
-                            label: 'Heat Map',
-                            data: generateData(),
-                            backgroundColor(c) {
-                              const value = c.dataset.data[c.dataIndex].v;
-                              const alpha = Math.min(1, (value + 1) / 10); // Adjust color intensity based on contributions
-                              return `rgba(0, 200, 0 , ${alpha})`;
-                            },
-                            borderColor: 'green',
-                            borderRadius: 1,
-                            borderWidth: 1,
-                            hoverBackgroundColor: 'rgba(255, 26, 104 , 0.1)',
-                            hoverBorderColor: 'rgba(255, 26, 104 , 1)',
-                            width(c) {
-                              const a = c.chart.chartArea || {};
-                              return (a.right - a.left) / 53 - 1; // 53 weeks in a year
-                            },
-                            height(c) {
-                              const a = c.chart.chartArea || {};
-                              return (a.bottom - a.top) / 7 - 1; // 7 days in a week
-                            },
-                          }]
-                        };
-                  
-                        const scales = {
-                          y: {
-                            type: 'time',
-                            offset: true,
-                            time: {
-                              unit: 'day',
-                              round: 'day',
-                              isoWeek: 1,
-                              parser: 'i',
-                              displayFormats: {
-                                day: 'iii'
-                              }
-                            },
-                            reverse: true,
-                            position: 'right',
-                            ticks: {
-                              maxRotation: 0,
-                              autoSkip: true,
-                              padding: 1,
-                              font: {
-                                size: 9,
-                              }
-                            },
-                            grid: {
-                              display: false,
-                              drawBorder: false,
-                              tickLength: 0
-                            }
-                          },
-                          x: {
-                            type: 'time',
-                            position: 'bottom',
-                            offset: true,
-                            time: {
-                              unit: 'week',
-                              round: 'week',
-                              isoWeekDay: 1,
-                              displayFormats: {
-                                week: 'MMM dd'
-                              }
-                            },
-                            ticks: {
-                              maxRotation: 0,
-                              autoSkip: true,
-                              font: {
-                                size: 9
-                              }
-                            },
-                            grid: {
-                              display: false,
-                              drawBorder: false,
-                              tickLength: 0
-                            }
-                          }
-                        };
-                  
-                        const config = {
-                          type: 'matrix',
-                          data,
-                          options: {
-                            maintainAspectRatio: false,
-                            scales: scales,
-                            plugins: {
-                              legend: {
-                                display: false,
+                           datasets: [{
+                              label: 'Heat Map',
+                              data: generateData(),
+                              backgroundColor(c) {
+                                 const value = c.dataset.data[c.dataIndex].v;
+                                 const alpha = Math.min(1, (value + 1) / 10); // Adjust color intensity based on contributions
+                                 return `rgba(0, 200, 0 , ${alpha})`;
                               },
-                              tooltip: {
-                                callbacks: {
-                                  label: function(context) {
-                                    const value = context.dataset.data[context.dataIndex].v;
-                                    return `Contributions: ${value}`;
-                                  }
-                                }
-                              }
-                            }
-                          }
+                              borderColor: 'green',
+                              borderRadius: 1,
+                              borderWidth: 1,
+                              hoverBackgroundColor: 'rgba(255, 26, 104 , 0.1)',
+                              hoverBorderColor: 'rgba(255, 26, 104 , 1)',
+                              width(c) {
+                                 const a = c.chart.chartArea || {};
+                                 return (a.right - a.left) / 53 - 1; // 53 weeks in a year
+                              },
+                              height(c) {
+                                 const a = c.chart.chartArea || {};
+                                 return (a.bottom - a.top) / 7 - 1; // 7 days in a week
+                              },
+                           }]
                         };
-                  
+
+                        const scales = {
+                           y: {
+                              type: 'time',
+                              offset: true,
+                              time: {
+                                 unit: 'day',
+                                 round: 'day',
+                                 isoWeek: 1,
+                                 parser: 'i',
+                                 displayFormats: {
+                                    day: 'iii'
+                                 }
+                              },
+                              reverse: true,
+                              position: 'right',
+                              ticks: {
+                                 maxRotation: 0,
+                                 autoSkip: true,
+                                 padding: 1,
+                                 font: {
+                                    size: 9,
+                                 }
+                              },
+                              grid: {
+                                 display: false,
+                                 drawBorder: false,
+                                 tickLength: 0
+                              }
+                           },
+                           x: {
+                              type: 'time',
+                              position: 'bottom',
+                              offset: true,
+                              time: {
+                                 unit: 'week',
+                                 round: 'week',
+                                 isoWeekDay: 1,
+                                 displayFormats: {
+                                    week: 'MMM dd'
+                                 }
+                              },
+                              ticks: {
+                                 maxRotation: 0,
+                                 autoSkip: true,
+                                 font: {
+                                    size: 9
+                                 }
+                              },
+                              grid: {
+                                 display: false,
+                                 drawBorder: false,
+                                 tickLength: 0
+                              }
+                           }
+                        };
+
+                        const config = {
+                           type: 'matrix',
+                           data,
+                           options: {
+                              maintainAspectRatio: false,
+                              scales: scales,
+                              plugins: {
+                                 legend: {
+                                    display: false,
+                                 },
+                                 tooltip: {
+                                    callbacks: {
+                                       label: function (context) {
+                                          const value = context.dataset.data[context.dataIndex].v;
+                                          return `Contributions: ${value}`;
+                                       }
+                                    }
+                                 }
+                              }
+                           }
+                        };
+
                         const myChart = new Chart(
-                          document.getElementById('myChart'),
-                          config
+                           document.getElementById('myChart'),
+                           config
                         );
-                  
+
                         const chartVersion = document.getElementById('chartVersion');
                         chartVersion.innerText = Chart.version;
-                      </script>
+                     </script>
                   </div>
                   <div class="number">
                      <h1>55</h1>
@@ -316,140 +318,472 @@
                </div>
                <!-- Calendar heatmap will be inserted here -->
 
-               
+
             </div>
          </div>
-         
+
 
          <!-- lower part -->
          <div class="lower">
             <div class="left">
-               
-               <div id="box1" class="box"></div>
-               <div id="box2graph" class="box"></div>
-               <div id="box3award" class="box"></div>
-               <div id="box4topica" class="box"></div>
+
+               <div id="box1" class="box">
+                  <div class="number" id="totaltest">
+                     <h2>Total Test</h2>
+                     <h1>86</h1>
+
+                  </div>
+                  <div class="chapter-box1">
+                     <div class="chapter">
+                        <h2>Chapter 1</h2>
+                        <h2 class="bold">26
+                        </h2>
+                     </div>
+                     <div class="chapter">
+                        <h2>Chapter 2</h2>
+                        <h2 class="bold">34</h2>
+                     </div>
+                     <div class="chapter">
+                        <h2>Chapter 3</h2>
+                        <h2 class="bold">36</h2>
+                     </div>
+
+                  </div>
+               </div>
+               <div id="box2graph" class="box">
+                  <div class="text">
+                     <div class="lefttext">
+                        <h2>Test Score</h2>
+                        <h2 id="big">36</h2>
+                     </div>
+                     <div class="righttext">
+                        <h2>24th Aug,2024</h2>
+                        <h2>Weekly Test 15</h2>
+                     </div>
+
+                  </div>
+                  <div class="graph">
+                     <div class="container">
+                        <div class="buttons">
+                           <button onclick="showChapter(1)" class="chapter-btn active">Chapter 1</button>
+                           <button onclick="showChapter(2)" class="chapter-btn">Chapter 2</button>
+                           <button onclick="showChapter(3)" class="chapter-btn">Chapter 3</button>
+                        </div>
+                        <div class="chart-container">
+                           <canvas id="myChart1"></canvas>
+                        </div>
+                     </div>
+
+                     <!-- Import Chart.js library -->
+                     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                     <script>
+                        // Sample data for test scores
+                        const chapterData = {
+                           1: [
+                              { name: "Week 1", score: 45 },
+                              { name: "Week 2", score: 34 },
+                              { name: "Week 3", score: 56 },
+                              { name: "Week 4", score: 67 },
+                              { name: "Week 5", score: 12 },
+                              { name: "Week 6", score: 98 }
+                           ],
+                           2: [
+                              { name: "Week 1", score: 45 },
+                              { name: "Week 2", score: 34 },
+                              { name: "Week 3", score: 56 },
+                              { name: "Week 4", score: 67 },
+                              { name: "Week 5", score: 12 },
+                              { name: "Week 6", score: 98 },
+                              { name: "Week 7", score: 34 },
+                              { name: "Week 8", score: 78 }
+                           ],
+                           3: [
+                              { name: "Week 1", score: 45 },
+                              { name: "Week 2", score: 34 },
+                              { name: "Week 3", score: 56 },
+                              { name: "Week 4", score: 67 },
+                              { name: "Week 5", score: 12 },
+                              { name: "Week 6", score: 98 },
+                              { name: "Week 7", score: 102 },
+                              { name: "Week 8", score: 56 },
+                              { name: "Week 9", score: 89 }
+                           ]
+                        };
+
+                        let currentChapter = 1;
+                        let myChart1;
+
+                        // Function to show chart based on selected chapter
+                        function showChapter(chapter) {
+                           currentChapter = chapter;
+                           updateChart();
+                           updateActiveButton();
+                        }
+
+                        // Function to update active button style
+                        function updateActiveButton() {
+                           const buttons = document.querySelectorAll('.chapter-btn');
+                           buttons.forEach(btn => {
+                              btn.classList.remove('active');
+                              if (parseInt(btn.textContent.match(/\d+/)[0]) === currentChapter) {
+                                 btn.classList.add('active');
+                              }
+                           });
+                        }
+
+                        // Function to update chart data based on currentChapter
+                        function updateChart() {
+                           const chapter = currentChapter.toString();
+                           const data = chapterData[chapter];
+                           const labels = data.map(test => test.name);
+                           const scores = data.map(test => test.score);
+
+                           if (myChart1) {
+                              myChart1.destroy();
+                           }
+
+                           const ctx = document.getElementById('myChart1').getContext('2d');
+                           myChart = new Chart(ctx, {
+                              type: 'line',
+                              data: {
+                                 labels: labels,
+                                 datasets: [{
+                                    label: 'Test Scores',
+                                    data: scores,
+                                    backgroundColor: '#4CAF50',
+                                    borderColor: '#45a049',
+                                    borderWidth: 0.5
+                                 }]
+                              },
+                              options: {
+                                 scales: {
+                                    y: {
+                                       beginAtZero: true,
+                                       grid: {
+                                          display: false // Remove grid lines from y-axis
+                                       }
+                                    },
+                                    x: {
+                                       beginAtZero: true,
+                                       grid: {
+                                          display: false // Remove grid lines from y-axis
+                                       }
+                                    }
+                                 },
+                                 plugins: {
+                                    legend: {
+                                       display: true,
+                                       position: 'top'
+                                    },
+                                    tooltip: {
+                                       enabled: true
+                                    }
+                                 },
+                                 elements: {
+                                    line: {
+                                       tension: 0
+                                    }
+                                 },
+                                 layout: {
+                                    padding: {
+                                       left: 0,
+                                       right: 0,
+                                       top: 0,
+                                       bottom: 0
+                                    }
+                                 },
+                                 ticks: {
+                                    font: {
+                                       size: 12,
+                                       family: "'Arial', sans-serif",
+                                       weight: "bold",
+                                    }
+                                 }
+                              }
+                           });
+                        }
+
+                        // Initial chart display
+                        updateChart();
+                     </script>
+                  </div>
+               </div>
+               <div id="box3award" class="box">
+                  <div class="card">
+                     <div class="card-header">
+                        <h2>Awards</h2>
+                     </div>
+                     <div class="card-body" id="award-list">
+                        <!-- Initial image -->
+                        <div class="award-item">
+                           <img src="/asset/Award_Asset_final.png" alt="Award 1" class="award-img1">
+                        </div>
+                     </div>
+                     <div class="card-footer">
+                        <button id="show-more-btn" onclick="openModal()">Show More</button>
+                     </div>
+                  </div>
+
+                  <!-- The Modal -->
+                  <div id="award-modal" class="modal">
+                     <!-- Modal content -->
+                     <div class="modal-content">
+                        <span class="close" onclick="closeModal()">&times;</span>
+                        <h2>Awards</h2>
+                        <div class="award-list-popup">
+                           <!-- Award items for popup -->
+                           <div class="award-item-popup">
+                              <img src="/asset/trophy.png" alt="Award 2" class="award-img-popup">
+                              <div class="award-tag-popup">2022</div>
+                           </div>
+                           <div class="award-item-popup">
+                              <img src="/asset/trophy.png" alt="Award 3" class="award-img-popup">
+                              <div class="award-tag-popup">2021</div>
+                           </div>
+                           <div class="award-item-popup">
+                              <img src="/asset/trophy.png" alt="Award 4" class="award-img-popup">
+                              <div class="award-tag-popup">2020</div>
+                           </div>
+                           <div class="award-item-popup">
+                              <img src="/asset/trophy.png" alt="Award 5" class="award-img-popup">
+                              <div class="award-tag-popup">2019</div>
+                           </div>
+                           <div class="award-item-popup">
+                              <img src="/asset/trophy.png" alt="Award 6" class="award-img-popup">
+                              <div class="award-tag-popup">2018</div>
+                           </div>
+                           <div class="award-item-popup">
+                              <img src="/asset/trophy.png" alt="Award 7" class="award-img-popup">
+                              <div class="award-tag-popup">2017</div>
+                           </div>
+                           <div class="award-item-popup">
+                              <img src="/asset/trophy.png" alt="Award 8" class="award-img-popup">
+                              <div class="award-tag-popup">2016</div>
+                           </div>
+                           <div class="award-item-popup">
+                              <img src="/asset/trophy.png" alt="Award 9" class="award-img-popup">
+                              <div class="award-tag-popup">2015</div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <script>
+                     // Get the modal
+                     var modal = document.getElementById("award-modal");
+
+                     // Get the button that opens the modal
+                     var btn = document.getElementById("show-more-btn");
+
+                     // Get the <span> element that closes the modal
+                     var span = document.getElementsByClassName("close")[0];
+
+                     // When the user clicks the button, open the modal 
+                     function openModal() {
+                        modal.style.display = "block";
+                     }
+
+                     // When the user clicks on <span> (x), close the modal
+                     function closeModal() {
+                        modal.style.display = "none";
+                     }
+
+                     // When the user clicks anywhere outside of the modal, close it
+                     window.onclick = function (event) {
+                        if (event.target == modal) {
+                           modal.style.display = "none";
+                        }
+                     }
+                  </script>
+               </div>
+               <div id="box4topica" class="box">
+                  <div class="chartContainer1">
+
+                     <div class="chartBox1">
+                        <h2>Topic Analysis</h2>
+                        <canvas id="myBarChart"></canvas>
+                     </div>
+                  </div>
+                  <script type="text/javascript"
+                     src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+                  <script>
+                     const topicData = {
+                        labels: ['Topic 1', 'Topic 2', 'Topic 3', 'Topic 4', 'Topic 5', 'Topic 6', 'Topic 7', 'Topic 8', 'Topic 9', 'Topic 10'],
+                        datasets: [{
+                           label: 'Number of Topics',
+                           data: [14, 10, 12, 6, 13, 11, 8, 5, 10, 13, 11, 11, 8, 14, 10, 11],
+                           backgroundColor: [
+                              'rgba(255, 99, 132, 0.2)',
+                              'rgba(54, 162, 235, 0.2)',
+                              'rgba(255, 206, 86, 0.2)',
+                              'rgba(75, 192, 192, 0.2)',
+                              'rgba(153, 102, 255, 0.2)'
+                           ],
+                           borderColor: [
+                              'rgba(255, 99, 132, 1)',
+                              'rgba(54, 162, 235, 1)',
+                              'rgba(255, 206, 86, 1)',
+                              'rgba(75, 192, 192, 1)',
+                              'rgba(153, 102, 255, 1)'
+                           ],
+                           borderWidth: 1,
+                           borderRadius: 10
+                        }]
+                     };
+
+                     // Configuration for the bar chart (rename as needed)
+                     const barChartConfig = {
+                        type: 'bar',
+                        data: topicData,
+                        options: {
+                           indexAxis: 'y',
+                           scales: {
+                              x: {
+                                 beginAtZero: true,
+                                 grid: {
+                                    display: false
+                                 },
+                                 ticks: {
+                                    font: {
+                                       size: 12,
+                                       family: "'Arial', sans-serif",
+                                       weight: "bold",
+                                    }
+                                 }
+                              },
+                              y: {
+                                 grid: {
+                                    display: false
+                                 },
+                                 ticks: {
+                                    font: {
+                                       size: 12,
+                                       family: "'Arial', sans-serif",
+                                       weight: "bold",
+                                    }
+                                 }
+                              }
+                           },
+                           plugins: {
+                              legend: {
+                                 display: false
+                              }
+                           }
+                        }
+                     };
+
+                     // Render the bar chart
+                     const myBarChart = new Chart(
+                        document.getElementById('myBarChart'),
+                        barChartConfig
+                     );
+                  </script>
+
+               </div>
             </div>
             <div class="right">
-               <div class="questions"></div>
-               <div class="ranking"></div>
+               <div class="questions">
+                  <h2>Questions Solved</h2>
+                  <div class="q1">
+                     <h2>Module 1</h2>
+                     <div class="insideq1">
+                        <div class="pie"></div>
+                        <div class="pieright">
+                           <div class="intro1">
+                              <h2>Intro1</h2>
+                              <h2>40</h2>
+                           </div>
+                           <div class="intro1">
+                              <h2>Intro2</h2>
+                              <h2>22</h2>
+                           </div>
+                           <div class="intro1">
+                              <h2>Intro3</h2>
+                              <h2>11</h2>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="q1">
+                     <h2>Module 2</h2>
+                     <div class="insideq1">
+                        <div class="pie"></div>
+                        <div class="pieright">
+                           <div class="intro1">
+                              <h2>Chapter1</h2>
+                              <h2>14</h2>
+                           </div>
+                           <div class="intro1">
+                              <h2>Chapter2</h2>
+                              <h2>11</h2>
+                           </div>
+                           <div class="intro1">
+                              <h2>Chapter3</h2>
+                              <h2>7</h2>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="ranking">
+                  <h2>Ranking</h2>
+                  <div class="q11">
+                     <h2 class="grey">Chapter 1</h2>
+                     <div class="insideq11">
+                        <div class="piee"><img src="asset/trophy.png" alt=""></div>
+                        <div class="pierightt">
+                           <div class="intro11">
+                              <h1>2395</h1>
+                              <h2>(min:1982)</h2>
+                           </div>
+
+                           <div class="intro11">
+                              <h2>Very Good</h2>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="q11">
+                     <h2 class="grey">Chapter 2</h2>
+                     <div class="insideq11">
+                        <div class="piee"><img src="asset/trophy.png" alt=""></div>
+                        <div class="pierightt">
+                           <div class="intro11">
+                              <h1>2395</h1>
+                              <h2>(min:1982)</h2>
+                           </div>
+
+                           <div class="intro11">
+                              <h2>Good</h2>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="q11">
+                     <h2 class="grey">Chapter 3</h2>
+                     <div class="insideq11">
+                        <div class="piee"><img src="asset/trophy.png" alt=""></div>
+                        <div class="pierightt">
+                           <div class="intro11">
+                              <h1>1233</h1>
+                              <h2>(min:709)</h2>
+                           </div>
+
+                           <div class="intro11">
+                              <h2>Excellent</h2>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
          </div>
 
       </div>
-</section>
-
-
-
-   <section class="courses">
-
-      <h1 class="heading">our courses</h1>
-
-      <div class="box-container">
-
-         <!-- <div class="box">
-         <div class="tutor">
-            <img src="images/pic-2.jpg" alt="">
-            <div class="info">
-               <h3>john deo</h3>
-               <span>21-10-2022</span>
-            </div>
-         </div>
-         <div class="thumb">
-            <img src="images/thumb-1.png" alt="">
-            <span>10 videos</span> -->
-         <!-- </div>
-         <h3 class="title">complete HTML tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a>
-      </div>
-
-      <div class="box">
-         <div class="tutor">
-            <img src="images/pic-3.jpg" alt="">
-            <div class="info">
-               <h3>john deo</h3>
-               <span>21-10-2022</span>
-            </div>
-         </div> -->
-         <!-- <div class="thumb">
-            <img src="images/thumb-2.png" alt="">
-            <span>10 videos</span>
-         </div>
-         <h3 class="title">complete CSS tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a>
-      </div>
-
-      <div class="box">
-         <div class="tutor">
-            <img src="images/pic-4.jpg" alt="">
-            <div class="info">
-               <h3>john deo</h3>
-               <span>21-10-2022</span>
-            </div> -->
-         <!-- </div>
-         <div class="thumb">
-            <img src="images/thumb-3.png" alt="">
-            <span>10 videos</span>
-         </div>
-         <h3 class="title">complete JS tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a>
-      </div>
-
-      <div class="box">
-         <div class="tutor">
-            <img src="images/pic-5.jpg" alt="">
-            <div class="info">
-               <h3>john deo</h3>
-               <span>21-10-2022</span>
-            </div>
-         </div>
-         <div class="thumb">
-            <img src="images/thumb-4.png" alt="">
-            <span>10 videos</span>
-         </div>
-         <h3 class="title">complete Boostrap tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a>
-      </div> -->
-
-         <!-- <div class="box">
-         <div class="tutor">
-            <img src="images/pic-6.jpg" alt="">
-            <div class="info">
-               <h3>john deo</h3>
-               <span>21-10-2022</span>
-            </div>
-         </div>
-         <div class="thumb">
-            <img src="images/thumb-5.png" alt="">
-            <span>10 videos</span>
-         </div>
-         <h3 class="title">complete JQuery tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a>
-      </div>
-
-      <div class="box">
-         <div class="tutor">
-            <img src="images/pic-7.jpg" alt="">
-            <div class="info">
-               <h3>john deo</h3>
-               <span>21-10-2022</span>
-            </div>
-         </div>
-         <div class="thumb">
-            <img src="images/thumb-6.png" alt="">
-            <span>10 videos</span>
-         </div>
-         <h3 class="title">complete SASS tutorial</h3>
-         <a href="playlist.html" class="inline-btn">view playlist</a> -->
-      </div>
-
-      </div>
-
-      <div class="more-btn">
-         <a href="courses.html" class="inline-option-btn">view all courses</a>
-      </div>
-
    </section>
+
+
+
 
 
 
@@ -467,13 +801,12 @@
 
    <footer class="footer">
 
-      &copy; copyright @ 2022 by <span>mr. web designer</span> | all rights reserved!
+      &copy; Copyright @ 2024 by <span>Happy Yadav</span> | All Rights Reserved
 
    </footer>
 
    <!-- custom js file link  -->
    <script src="js/script.js"></script>
-
 
 </body>
 
