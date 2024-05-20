@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Getting Started with Chart JS with www.chartjs3.com</title>
-    <style>
+
+    <!-- <style>
       * {
         margin: 0;
         padding: 0;
@@ -13,7 +13,7 @@
       .chartMenu {
         width: 100vw;
         height: 40px;
-        background: #1A1A1A;
+        background: #010700;
         color: rgba(54, 162, 235, 1);
       }
       .chartMenu p {
@@ -23,7 +23,7 @@
       .chartCard {
         width: 100vw;
         height: calc(100vh - 40px);
-        background: rgba(54, 162, 235, 0.2);
+        /* background: rgba(54, 162, 235, 0.2); */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -33,156 +33,208 @@
         height:100px;
         padding: 20px;
         border-radius: 20px;
-        border: solid 3px rgba(54, 162, 235, 1);
+        border: solid 3px rgb(0, 4, 7);
         background: white;
       }
-    </style>
+    </style> -->
   </head>
   <body>
-    <div class="chartCard">
+    <!-- <div class="chartCard">
       <div class="chartBox">
         <canvas id="myChart"></canvas>
-        <button type="button" onclick="generateData()">Test</button>
       </div>
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@1.1"></script>
-   
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script> -->
+
     <script>
-      function isoDayOfWeek(dt){
+      function isoDayOfWeek(dt) {
         let wd = dt.getDay();
-        wd = (wd +6) % 7 + 1
+        wd = (wd + 6) % 7 + 1;
         return '' + wd;
-       };
+      }
 
-      function generateData(){
-        const d = new Date();
-        const today = new Date(d.getFullYear(), d.getMonth(), d.getDate(),0,0,0,0);
-        const data2 = [];
-        const end = today;
-        let dt = new Date(new Date().setDate(end.getDate()- 365));
-        while(dt <=end){
-          const iso = dt.toISOString().substr(0,10);
-          data2.push({
-            x:iso,
-            y:isoDayOfWeek(dt),
-            d:iso,
-            v:Math.random() * 50
+      function generateData() {
+        const contributions = [
+          { date: '2024-04-10', count: 1 },
+          { date: '2024-04-11', count: 2 },
+          { date: '2024-04-12', count: 0 },
+          { date: '2024-04-13', count: 3 },
+          { date: '2024-04-14', count: 4 },
+          { date: '2024-04-15', count: 3 },
+          { date: '2024-04-16', count: 4 },
+          { date: '2024-04-17', count: 5 },
+          { date: '2024-04-18', count: 5 },
+          { date: '2024-04-19', count: 2 },
+          { date: '2024-04-20', count: 4 },
+          { date: '2024-05-21', count: 1 },
+          { date: '2024-05-22', count: 4 },
+          { date: '2024-05-23', count: 3 },
+          { date: '2024-05-24', count: 4 },
+          { date: '2024-05-25', count: 1 },
+          { date: '2024-05-26', count: 2 },
+          { date: '2024-05-27', count: 0 },
+          { date: '2024-05-28', count: 0 },
+          { date: '2024-05-29', count: 1 },
+          { date: '2024-05-30', count: 4 },
+          { date: '2024-05-01', count: 3 },
+          { date: '2024-05-02', count: 5 },
+          { date: '2024-05-03', count: 5 },
+          { date: '2024-05-04', count: 4 },
+          { date: '2024-05-05', count: 3 },
+          { date: '2024-05-06', count: 4 },
+          { date: '2024-05-07', count: 4 },
+          { date: '2024-05-08', count: 4 },
+          { date: '2024-05-09', count: 4 },
+          { date: '2024-05-10', count: 4 },
+          { date: '2024-05-11', count: 5 },
+          { date: '2024-05-12', count: 3 },
+          { date: '2024-05-13', count: 1 },
+          { date: '2024-05-14', count: 0 },
+          { date: '2024-05-15', count: 0 },
+          { date: '2024-05-16', count: 0 },
+          { date: '2024-05-17', count: 5 },
+          { date: '2024-05-18', count: 3 },
+          { date: '2024-05-19', count: 2 },
+          { date: '2024-05-20', count: 4 },
+          { date: '2024-05-21', count: 4 },
+          { date: '2024-05-22', count: 4 },
+          { date: '2024-05-23', count: 0 },
+          { date: '2024-05-24', count: 4 },
+          { date: '2024-05-25', count: 1 },
+          // Add more custom dates and contributions here
+        ];
+
+        const startDate = new Date('2024-01-01');
+        const endDate = new Date('2024-12-31');
+        const data = [];
+        
+        for (let dt = new Date(startDate); dt <= endDate; dt.setDate(dt.getDate() + 1)) {
+          const iso = dt.toISOString().substr(0, 10);
+          const contribution = contributions.find(entry => entry.date === iso);
+          const count = contribution ? contribution.count : 0;
+          data.push({
+            x: iso,
+            y: isoDayOfWeek(dt),
+            d: iso,
+            v: count,
           });
-          dt = new Date(dt.setDate(dt.getDate()+1));
         }
-        console.log(data2);
-        return data2;
+
+        return data;
+      }
+
+      const data = {
+        datasets: [{
+          label: 'Heat Map',
+          data: generateData(),
+          backgroundColor(c) {
+            const value = c.dataset.data[c.dataIndex].v;
+            const alpha = Math.min(1, (value + 1) / 10); // Adjust color intensity based on contributions
+            return `rgba(0, 200, 0 , ${alpha})`;
+          },
+          borderColor: 'green',
+          borderRadius: 1,
+          borderWidth: 1,
+          hoverBackgroundColor: 'rgba(255, 26, 104 , 0.1)',
+          hoverBorderColor: 'rgba(255, 26, 104 , 1)',
+          width(c) {
+            const a = c.chart.chartArea || {};
+            return (a.right - a.left) / 53 - 1; // 53 weeks in a year
+          },
+          height(c) {
+            const a = c.chart.chartArea || {};
+            return (a.bottom - a.top) / 7 - 1; // 7 days in a week
+          },
+        }]
       };
-    // setup 
-    const data = {
-      datasets:[{
-        label: 'Heat Map',
-        data: generateData(),
-        backgroundColor(c){
-          const value = c.dataset.data[c.dataIndex].v;
-          const alpha = (10 + value) / 60;
-          return `rgba(0, 200, 0 , ${alpha})`;
-        },
-        borderColor: 'green',
-        borderRadius: 1,
-        borderWidth:1,
-        hoverBackgroundColor: 'rgba(255, 26, 104 , 0.2)',
-        hoverBorderColor: 'rgba(255, 26, 104 , 1)',
-        width(c){
-          const a = c.chart.chartArea || {};
-          return (a.right - a.left) / 53-1;
-        },  
-        height(c){
-          const a = c.chart.chartArea || {};
-          return (a.bottom - a.top) / 7-1;
-        },
-      }]
-    };
-     const scales ={
-      y:{
-        type: 'time',
-        offset: true,
-        time: {
-          unit:'day',
-          round: 'day',
-          isoWeek:1,
-          parser:'i',
-          displayFormats:{
-            day:'iii'
+
+      const scales = {
+        y: {
+          type: 'time',
+          offset: true,
+          time: {
+            unit: 'day',
+            round: 'day',
+            isoWeek: 1,
+            parser: 'i',
+            displayFormats: {
+              day: 'iii'
+            }
+          },
+          reverse: true,
+          position: 'right',
+          ticks: {
+            maxRotation: 0,
+            autoSkip: true,
+            padding: 1,
+            font: {
+              size: 9,
+            }
+          },
+          grid: {
+            display: false,
+            drawBorder: false,
+            tickLength: 0
           }
         },
-        reverse: true,
-        position:'right',
-        ticks:{
-          maxRotation:0,
-          autoSkip:true,
-          padding:1,
-          font:{
-            size:9,
+        x: {
+          type: 'time',
+          position: 'bottom',
+          offset: true,
+          time: {
+            unit: 'week',
+            round: 'week',
+            isoWeekDay: 1,
+            displayFormats: {
+              week: 'MMM dd'
+            }
+          },
+          ticks: {
+            maxRotation: 0,
+            autoSkip: true,
+            font: {
+              size: 9
+            }
+          },
+          grid: {
+            display: false,
+            drawBorder: false,
+            tickLength: 0
           }
-        },
-        grid:{
-          display:false,
-          drawBorder: false,
-          tickLength:0
         }
-      },
-      x:{
-        type:'time',
-        position:'bottom',
-        offset:true,
-        time:{
-          unit: 'week',
-          round: 'week',
-          isoWeekDay:1,
-          displayFormats:{
-            week:'MMM dd'
+      };
+
+      const config = {
+        type: 'matrix',
+        data,
+        options: {
+          maintainAspectRatio: false,
+          scales: scales,
+          plugins: {
+            legend: {
+              display: false,
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  const value = context.dataset.data[context.dataIndex].v;
+                  return `Contributions: ${value}`;
+                }
+              }
+            }
           }
-        },
-        ticks:{
-          maxRotation:0,
-          autoSkip:true,
-          font:{
-            size: 9
-          }
-        },
-        grid:{
-          display:false,
-          drawBorder:false,
-          tickLength:0
         }
-      }
-     };
-    const config = {
-      
-      type: 'matrix',
-      data,
-      options: {
-        maintainAspectRatio: false,
-        scales: scales,
-        plugins:{
-          legend:{
-            display:false,
-        }
+      };
 
-        }
-      }
-    };
+      const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+      );
 
-    // render init block
-    const myChart = new Chart(
-      document.getElementById('myChart'),
-      config
-    );
-
-    // Instantly assign Chart.js version
-    const chartVersion = document.getElementById('chartVersion');
-    chartVersion.innerText = Chart.version;
-    </script>
-
+      const chartVersion = document.getElementById('chartVersion');
+      chartVersion.innerText = Chart.version;
+    </script> -->
   </body>
 </html>

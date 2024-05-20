@@ -1,171 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Home</title>
+   <title>home</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 
-   <!-- custom css file link  -->git
+   <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
-   <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
-    rel="stylesheet"
-/>
-<style>
-.dashboard {
-   font-family: Arial, sans-serif;
-   margin: 20px;
-}
-
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+   <style>
+      .dashboard {
+         font-family: Arial, sans-serif;
+         margin: 20px;
+      }
    </style>
 
 </head>
+
 <body>
 
-<header class="header">
-   
-   <section class="flex">
+   <header class="header">
 
-      <a href="home.html" class="logo">Student Portfolio</a>
+      <section class="flex">
 
-      <form action="search.html" method="post" class="search-form">
-         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
-         <button type="submit" class="fas fa-search"></button>
-      </form>
+         <a href="home.html" class="logo">Educa.</a>
 
-      <div class="icons">
-         <div id="menu-btn" class="fas fa-bars"></div>
-         <div id="search-btn" class="fas fa-search"></div>
-         <div id="user-btn" class="fas fa-user"></div>
-         <div id="toggle-btn" class="fas fa-sun"></div>
+         <form action="search.html" method="post" class="search-form">
+            <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+            <button type="submit" class="fas fa-search"></button>
+         </form>
+
+         <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+            <div id="user-btn" class="fas fa-user"></div>
+            <div id="toggle-btn" class="fas fa-sun"></div>
+         </div>
+
+         <div class="profile">
+            <img src="images/pic-1.jpg" class="image" alt="">
+            <h3 class="name">shaikh anas</h3>
+            <p class="role">studen</p>
+            <a href="profile.html" class="btn">view profile</a>
+            <div class="flex-btn">
+               <a href="login.html" class="option-btn">login</a>
+               <a href="register.html" class="option-btn">register</a>
+            </div>
+         </div>
+
+      </section>
+
+   </header>
+
+   <div class="side-bar">
+
+      <div id="close-btn">
+         <i class="fas fa-times"></i>
       </div>
 
       <div class="profile">
          <img src="images/pic-1.jpg" class="image" alt="">
-         <h3 class="name text-red-950">Siddhart Singh</h3>
-         <p class="role">student</p>
-         <a href="profile.html" class="btn">View profile</a>
-         <div class="flex-btn">
-            <a href="login.html" class="option-btn">Login</a>
-            <a href="register.html" class="option-btn">Register</a>
-         </div>
+         <h3 class="name">Siddtharth Singh</h3>
+         <p class="role"><img src="https://icons.iconarchive.com/icons/wikipedia/flags/1024/IN-India-Flag-icon.png"
+               alt="" class="india">India </p>
+         <p class="role"><i class="ri-graduation-cap-line"></i>Delhi Technological University</p>
+         <p class="role"><i class="ri-mail-line"></i>sample @gmail.com</p>
+         <a href="profile.html" class="btn">view profile</a>
       </div>
 
-   </section>
-
-</header>   
-
-<div class="side-bar">
-
-   <div id="close-btn">
-      <i class="fas fa-times"></i>
-   </div>
-
-
-   <div class="profile">
-      <img src="images/pic-1.jpg" class="image" alt="">
-
-      <h3 class="name">Siddtharth Singh</h3>
-      <p class="role"><img src="https://icons.iconarchive.com/icons/wikipedia/flags/1024/IN-India-Flag-icon.png" alt="" class="india">India </p>
-      <p class="role"><i class="ri-graduation-cap-line"></i>Delhi Technological University</p>
-      <p class="role"><i class="ri-mail-line"></i>sample @gmail.com</p>
-      <a href="profile.html" class="btn">view profile</a>
-   </div>
-
-   <nav class="navbar">
-      <a href="home.html"><i class="fas fa-home"></i><span>Overall Stats</span></a>
-      <a href="about.html"><i class="fas fa-headset"></i><span>ChapterWise Stats</span></a>
-      <!-- <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
+      <nav class="navbar">
+         <a href="home.html"><i class="fas fa-home"></i><span>Overall Stats</span></a>
+         <a href="about.html"><i class="fas fa-headset"></i><span>ChapterWise Stats</span></a>
+         <!-- <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
       <a href="teachers.html"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
       <a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a> -->
-
-    
-   </nav>
-
-</div>
-
-
-<section class="home-div">
-
-   <h1 class="heading">Overall Stats</h1>
-   <div class="dashboard">
-      <!-- upper part -->
-      <div class="upper">
-      <!-- Total Questions Widget -->
-      <div class="widget" id="upper1">
-          <h2>Total Questions</h2>
-         <h1>105</h1>
-          <!-- Line graph will be inserted here -->
-
-<section class="home-grid">
-
-   <h1 class="heading">quick options</h1>
-
-   <div class="box-container">
-
-      <div class="box">
-         <h3 class="title text-red-500">likes and comments</h3>
-         <p class="likes">total likes : <span>25</span></p>
-         <a href="#" class="inline-btn">view likes</a>
-         <p class="likes">total comments : <span>12</span></p>
-         <a href="#" class="inline-btn">view comments</a>
-         <p class="likes">saved playlists : <span>4</span></p>
-         <a href="#" class="inline-btn">view playlists</a>
-
-      </div>
-      
-      <!-- Calendar Heatmap Widget -->
-      <div class="widget" id ="upper2">
-        <div class="upper2text"><p>67 submissions in past 3 months</p>
-         <p>Total Active Days: <b>56</b></p>
-         <p>Current Streak:<b> 3</b></p>
-      </div> 
-      <div class="upper2below">
-         <div class="heatmap"></div>
-         <div class="number">
-            <h1>55</h1>
-            <h3>Max Streak</h3>
-         </div>
-      </div>
-          <!-- Calendar heatmap will be inserted here -->
-      </div>
-       </div>
-
-       <!-- lower part -->
-      <div class="lower">
-         <div class="left">
-            <div id="box1" class="box"></div>
-            <div id="box2graph" class="box"></div>
-            <div id="box3award" class="box"></div>
-            <div id="box4topica" class="box"></div>
-         </div>
-         <div class="right">
-            <div class="questions"></div>
-            <div class="ranking"></div>
-         </div>
-      </div>
+      </nav>
 
    </div>
-      
-   
 
-    
+   <section class="home-div">
 
+      <h1 class="heading">Overall Stats</h1>
+      <div class="dashboard">
+         <!-- upper part -->
+         <div class="upper">
+            <!-- Total Questions Widget -->
+            <div class="widget" id="upper1">
+               <h2>Total Questions</h2>
+               <h1>105</h1>
+               
+               <!-- Line graph will be inserted here -->
+            </div>
+
+            <!-- Calendar Heatmap Widget -->
+            <div class="widget" id="upper2">
+               
+               <div class="upper2text">
+                  <p>67 submissions in past 3 months</p>
+                  <p>Total Active Days: <b>56</b></p>
+                  <p>Current Streak:<b> 3</b></p>
+
+               </div>
+               <div class="upper2below">
+                  
+                  
+                  <div class="heatmap">
+
+                     <div class="chartCard">
+                        <div class="chartBox">
+                          <canvas id="myChart"></canvas>
+                        </div>
+                      </div>
+                      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+                      <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+                      <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@1.1"></script>
+                  
+                      <script>
+                        function isoDayOfWeek(dt) {
+                          let wd = dt.getDay();
+                          wd = (wd + 6) % 7 + 1;
+                          return '' + wd;
+                        }
+                  
+                        function generateData() {
+                          const contributions = [
+                            { date: '2024-04-10', count: 1 },
+                            { date: '2024-04-11', count: 2 },
+                            { date: '2024-04-12', count: 0 },
+                            { date: '2024-04-13', count: 3 },
+                            { date: '2024-04-14', count: 4 },
+                            { date: '2024-04-15', count: 3 },
+                            { date: '2024-04-16', count: 4 },
+                            { date: '2024-04-17', count: 5 },
+                            { date: '2024-04-18', count: 5 },
+                            { date: '2024-04-19', count: 2 },
+                            { date: '2024-04-20', count: 4 },
+                            { date: '2024-05-21', count: 1 },
+                            { date: '2024-05-22', count: 4 },
+                            { date: '2024-05-23', count: 3 },
+                            { date: '2024-05-24', count: 4 },
+                            { date: '2024-05-25', count: 1 },
+                            { date: '2024-05-26', count: 2 },
+                            { date: '2024-05-27', count: 0 },
+                            { date: '2024-05-28', count: 0 },
+                            { date: '2024-05-29', count: 1 },
+                            { date: '2024-05-30', count: 4 },
+                            { date: '2024-05-01', count: 3 },
+                            { date: '2024-05-02', count: 5 },
+                            { date: '2024-05-03', count: 5 },
+                            { date: '2024-05-04', count: 4 },
+                            { date: '2024-05-05', count: 3 },
+                            { date: '2024-05-06', count: 4 },
+                            { date: '2024-05-07', count: 4 },
+                            { date: '2024-05-08', count: 4 },
+                            { date: '2024-05-09', count: 4 },
+                            { date: '2024-05-10', count: 4 },
+                            { date: '2024-05-11', count: 5 },
+                            { date: '2024-05-12', count: 3 },
+                            { date: '2024-05-13', count: 1 },
+                            { date: '2024-05-14', count: 0 },
+                            { date: '2024-05-15', count: 0 },
+                            { date: '2024-05-16', count: 0 },
+                            { date: '2024-05-17', count: 5 },
+                            { date: '2024-05-18', count: 3 },
+                            { date: '2024-05-19', count: 2 },
+                            { date: '2024-05-20', count: 4 },
+                            { date: '2024-05-21', count: 4 },
+                            { date: '2024-05-22', count: 4 },
+                            { date: '2024-05-23', count: 0 },
+                            { date: '2024-05-24', count: 4 },
+                            { date: '2024-05-25', count: 1 },
+                            // Add more custom dates and contributions here
+                          ];
+                  
+                          const startDate = new Date('2024-01-01');
+                          const endDate = new Date('2024-12-31');
+                          const data = [];
+                          
+                          for (let dt = new Date(startDate); dt <= endDate; dt.setDate(dt.getDate() + 1)) {
+                            const iso = dt.toISOString().substr(0, 10);
+                            const contribution = contributions.find(entry => entry.date === iso);
+                            const count = contribution ? contribution.count : 0;
+                            data.push({
+                              x: iso,
+                              y: isoDayOfWeek(dt),
+                              d: iso,
+                              v: count,
+                            });
+                          }
+                  
+                          return data;
+                        }
+                  
+                        const data = {
+                          datasets: [{
+                            label: 'Heat Map',
+                            data: generateData(),
+                            backgroundColor(c) {
+                              const value = c.dataset.data[c.dataIndex].v;
+                              const alpha = Math.min(1, (value + 1) / 10); // Adjust color intensity based on contributions
+                              return `rgba(0, 200, 0 , ${alpha})`;
+                            },
+                            borderColor: 'green',
+                            borderRadius: 1,
+                            borderWidth: 1,
+                            hoverBackgroundColor: 'rgba(255, 26, 104 , 0.1)',
+                            hoverBorderColor: 'rgba(255, 26, 104 , 1)',
+                            width(c) {
+                              const a = c.chart.chartArea || {};
+                              return (a.right - a.left) / 53 - 1; // 53 weeks in a year
+                            },
+                            height(c) {
+                              const a = c.chart.chartArea || {};
+                              return (a.bottom - a.top) / 7 - 1; // 7 days in a week
+                            },
+                          }]
+                        };
+                  
+                        const scales = {
+                          y: {
+                            type: 'time',
+                            offset: true,
+                            time: {
+                              unit: 'day',
+                              round: 'day',
+                              isoWeek: 1,
+                              parser: 'i',
+                              displayFormats: {
+                                day: 'iii'
+                              }
+                            },
+                            reverse: true,
+                            position: 'right',
+                            ticks: {
+                              maxRotation: 0,
+                              autoSkip: true,
+                              padding: 1,
+                              font: {
+                                size: 9,
+                              }
+                            },
+                            grid: {
+                              display: false,
+                              drawBorder: false,
+                              tickLength: 0
+                            }
+                          },
+                          x: {
+                            type: 'time',
+                            position: 'bottom',
+                            offset: true,
+                            time: {
+                              unit: 'week',
+                              round: 'week',
+                              isoWeekDay: 1,
+                              displayFormats: {
+                                week: 'MMM dd'
+                              }
+                            },
+                            ticks: {
+                              maxRotation: 0,
+                              autoSkip: true,
+                              font: {
+                                size: 9
+                              }
+                            },
+                            grid: {
+                              display: false,
+                              drawBorder: false,
+                              tickLength: 0
+                            }
+                          }
+                        };
+                  
+                        const config = {
+                          type: 'matrix',
+                          data,
+                          options: {
+                            maintainAspectRatio: false,
+                            scales: scales,
+                            plugins: {
+                              legend: {
+                                display: false,
+                              },
+                              tooltip: {
+                                callbacks: {
+                                  label: function(context) {
+                                    const value = context.dataset.data[context.dataIndex].v;
+                                    return `Contributions: ${value}`;
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        };
+                  
+                        const myChart = new Chart(
+                          document.getElementById('myChart'),
+                          config
+                        );
+                  
+                        const chartVersion = document.getElementById('chartVersion');
+                        chartVersion.innerText = Chart.version;
+                      </script>
+                  </div>
+                  <div class="number">
+                     <h1>55</h1>
+                     <h3>Max Streak</h3>
+                  </div>
+               </div>
+               <!-- Calendar heatmap will be inserted here -->
+
+               
+            </div>
+         </div>
+         
+
+         <!-- lower part -->
+         <div class="lower">
+            <div class="left">
+               
+               <div id="box1" class="box"></div>
+               <div id="box2graph" class="box"></div>
+               <div id="box3award" class="box"></div>
+               <div id="box4topica" class="box"></div>
+            </div>
+            <div class="right">
+               <div class="questions"></div>
+               <div class="ranking"></div>
+            </div>
+         </div>
+
+      </div>
 </section>
 
 
 
-<section class="courses">
+   <section class="courses">
 
-   <h1 class="heading">our courses</h1>
+      <h1 class="heading">our courses</h1>
 
-   <div class="box-container">
+      <div class="box-container">
 
-      <!-- <div class="box">
+         <!-- <div class="box">
          <div class="tutor">
             <img src="images/pic-2.jpg" alt="">
             <div class="info">
@@ -229,7 +411,7 @@
          <a href="playlist.html" class="inline-btn">view playlist</a>
       </div> -->
 
-      <!-- <div class="box">
+         <!-- <div class="box">
          <div class="tutor">
             <img src="images/pic-6.jpg" alt="">
             <div class="info">
@@ -261,15 +443,13 @@
          <a href="playlist.html" class="inline-btn">view playlist</a> -->
       </div>
 
-   </div>
+      </div>
 
-   <div class="more-btn">
-      <a href="courses.html" class="inline-option-btn">view all courses</a>
-   </div>
+      <div class="more-btn">
+         <a href="courses.html" class="inline-option-btn">view all courses</a>
+      </div>
 
-</section>
-
-
+   </section>
 
 
 
@@ -283,15 +463,18 @@
 
 
 
-<footer class="footer">
 
-   &copy; copyright @ 2022 by <span>mr. web designer</span> | all rights reserved!
 
-</footer>
+   <footer class="footer">
 
-<!-- custom js file link  -->
-<script src="js/script.js"></script>
+      &copy; copyright @ 2022 by <span>mr. web designer</span> | all rights reserved!
 
-   
+   </footer>
+
+   <!-- custom js file link  -->
+   <script src="js/script.js"></script>
+
+
 </body>
+
 </html>
