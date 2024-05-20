@@ -60,7 +60,7 @@ body.active{
 }
 
 section{
-   padding:2rem;
+   padding:5rem;
    margin: 0 auto;
    max-width: 1200px;
 }
@@ -237,8 +237,23 @@ section{
 .header .flex .profile .role{
    font-size: 1.8rem;
    color: var(--light-color);
+   /* text-align: right; */
 }
-
+p.role{
+   text-align:left;
+}
+.india{
+   height: 20px;
+   width: 20px;
+   margin-right: 10px;
+   object-fit: contain;
+   scale: 1.5;
+   margin-left: 5px;
+}
+.role i{
+   margin-right: 9px;
+   font-size: 25px;
+}
 #search-btn{
    display: none;
 }
@@ -296,9 +311,12 @@ section{
    text-overflow: ellipsis;
    white-space: nowrap;
 }
+.side-bar .profile .btn{
+  margin-top: 13px;
+}
 
 .side-bar .profile .role{
-   font-size: 1.8rem;
+   font-size: 1.6rem;
    color: var(--light-color);
 }
 
@@ -331,11 +349,16 @@ section{
 }
 
 .home-grid .box-container{
-   display: grid;
+   /* display: grid;
    grid-template-columns: repeat(auto-fit, 27.5rem);
-   gap:1.5rem;
+   gap:1.5rem; */
    justify-content: center;
    align-items: flex-start;
+}
+.home-grid .box-container .box1{
+height: 30%;
+background-color: #888;
+width: 100%;
 }
 
 .home-grid .box-container .box{
@@ -1281,7 +1304,7 @@ section{
 .footer{
    background-color: var(--white);
    border-top: var(--border);
-   position: sticky;
+   /* position: sticky; */
    bottom: 0; left: 0; right: 0;
    text-align: center;
    font-size: 2rem;
@@ -1296,8 +1319,79 @@ section{
    color:var(--main-color);
 }
 
+.dashboard .upper{
+   /* background-color: #e74c3c; */
+   height: 30%;
+   display: flex;
+   justify-content:space-around;
+   align-items: center;
+   gap: 25px;
+   margin: 20px;
+}
+#upper1{
+   /* background-color: #888; */
+   width: 20%;
+}
+#upper1 h2{
+   text-align: center;
 
+}
+#upper1 h1{
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: first baseline;
+   font-size: 60px;
+}
+#upper2{
+   position: relative;
+   /* background-color: #222; */
+   width: 70%;
+   height: 100%;
 
+}
+.upper2text{
+   display: flex;
+   justify-content: space-around;
+}
+.upper2below{
+   display: flex;
+   /* background-color: #222; */
+   height: 70%;
+   width: 100%;
+}
+.heatmap{
+   position: relative;
+   width: 70%;
+   background-color: #8e44ad;
+   height: 15vh;
+}
+.number{
+   width: 30%;
+}
+.number h3{
+text-align: center;
+}
+.number h1{
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: first baseline;
+   font-size: 50px;
+}
+.lower{
+
+   height: 70vh;
+   background-color: #8e44ad;
+   margin: 20px;
+
+}
+.widget{
+
+   border-radius: 15px ;
+   background-color:var(--white);
+   padding: 10px;
+}
 @media (max-width:1200px){
 
    body{
